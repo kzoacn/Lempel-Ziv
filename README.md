@@ -13,5 +13,4 @@ g++ lz78.cpp -o lz78
 ```
 ./lz77 encode/decode <in-file> <out-file>
 ./lz78 encode/decode <in-file> <out-file>
-
 ```
