@@ -133,12 +133,12 @@ void decode()
 				previous = dict_dec[pW];
 				current = dict_dec[pW][0];
 
-				if (dict_enc.count(previous + previous) == 0)
+				if (dict_enc.count(previous + current) == 0)
 				{
 					if (dict_dec.count(cW) == 0)
 					{
-						dict_enc[previous + previous] = cW;
-						dict_dec[cW] = previous + previous;
+						dict_enc[previous + current] = cW;
+						dict_dec[cW] = previous + current;
 					}
 					else
 					{
@@ -146,7 +146,7 @@ void decode()
 						return;
 					}
 				}
-				string temp = previous + previous[0];
+				string temp = previous + current;
 				//::fwrite(&temp, 1, temp.size(), fout);
 				for (size_t j = 0; j < temp.size(); j++)
 				{
@@ -176,13 +176,13 @@ int main(int argc, char** argv)
 	//     decode();
 	// }
 
-	//fopen_s(&fin, "./src.txt", "rb");
+	//fopen_s(&fin, "./src.docx", "rb");
 	//fopen_s(&fout, "./lz78w.out", "wb");
 
 	//encode();
 
 	fopen_s(&fin, "./lz78w.out", "rb");
-	fopen_s(&fout, "./lz78w_dec.txt", "wb");
+	fopen_s(&fout, "./lz78w_dec.docx", "wb");
 
 	decode();
 
